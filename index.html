@@ -987,8 +987,8 @@
             <!-- Testimonials -->
             <div class="max-w-7xl mx-auto px-4 relative z-10">
                 <div class="grid md:grid-cols-2 gap-8 mb-16">
-                    <div
-                        class="bg-white border border-gray-100 p-8 rounded-2xl shadow-soft hover:shadow-hover transition-all duration-300">
+                    <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-soft hover:shadow-hover transition-all duration-300"
+                        data-aos="fade-up" data-aos-delay="100">
                         <div class="flex items-center gap-4 mb-4">
                             <img src="https://i.pravatar.cc/100?img=5"
                                 class="w-12 h-12 rounded-full border border-gray-100">
@@ -1006,8 +1006,8 @@
                             Giúp tôi tiết kiệm 50% thời gian screening."</p>
                     </div>
 
-                    <div
-                        class="bg-white border border-gray-100 p-8 rounded-2xl shadow-soft hover:shadow-hover transition-all duration-300">
+                    <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-soft hover:shadow-hover transition-all duration-300"
+                        data-aos="fade-up" data-aos-delay="200">
                         <div class="flex items-center gap-4 mb-4">
                             <img src="https://i.pravatar.cc/100?img=11"
                                 class="w-12 h-12 rounded-full border border-gray-100">
@@ -1027,7 +1027,7 @@
                 </div>
 
                 <!-- Press -->
-                <div class="border-t border-gray-200 pt-10 text-center">
+                <div class="border-t border-gray-200 pt-10 text-center" data-aos="fade-up" data-aos-delay="300">
                     <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">Được tin dùng bởi</p>
                     <div
                         class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
@@ -1337,13 +1337,56 @@
     </footer>
 
     <!-- Init Animations -->
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4 items-end group">
+
+        <!-- Back to Top (Hidden by default) -->
+        <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center shadow-lg transform translate-y-10 opacity-0 transition-all duration-300 hover:bg-brand-yellow hover:text-black hover:-translate-y-1 focus:outline-none pointer-events-none data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100 data-[visible=true]:pointer-events-auto">
+            <i class="fa-solid fa-arrow-up text-lg"></i>
+        </button>
+
+        <!-- Messenger -->
+        <a href="#"
+            class="w-14 h-14 bg-gradient-to-tr from-blue-600 to-blue-500 text-white rounded-full flex items-center justify-center shadow-[0_4px_14px_0_rgba(59,130,246,0.39)] hover:scale-110 transition-transform duration-300 relative group/btn">
+            <i class="fa-brands fa-facebook-messenger text-2xl"></i>
+            <span
+                class="absolute right-full mr-3 bg-gray-900 text-white text-xs font-bold px-2 py-1 rounded opacity-0 group-hover/btn:opacity-100 transition-opacity whitespace-nowrap">Chat
+                Messenger</span>
+        </a>
+
+        <!-- Hotline/Zalo -->
+        <a href="tel:0979334143"
+            class="w-14 h-14 bg-gradient-to-tr from-red-500 to-pink-500 text-white rounded-full flex items-center justify-center shadow-[0_4px_14px_0_rgba(239,68,68,0.39)] animate-pulse hover:animate-none hover:scale-110 transition-transform duration-300 relative group/btn">
+            <i class="fa-solid fa-phone text-2xl"></i>
+            <span
+                class="absolute right-full mr-3 bg-gray-900 text-white text-xs font-bold px-2 py-1 rounded opacity-0 group-hover/btn:opacity-100 transition-opacity whitespace-nowrap">0979.334.143</span>
+            <!-- Ring Effect -->
+            <span class="absolute inset-0 rounded-full border-2 border-red-500 opacity-75 animate-ping"></span>
+        </a>
+
+    </div>
+
+    <!-- Init Animations & Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Init AOS
         AOS.init({
             once: true,
             offset: 50,
             duration: 800,
             easing: 'ease-out-cubic',
+        });
+
+        // Back to Top Logic
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.setAttribute('data-visible', 'true');
+            } else {
+                backToTopBtn.setAttribute('data-visible', 'false');
+            }
         });
     </script>
 </body>
